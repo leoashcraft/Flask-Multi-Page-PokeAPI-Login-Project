@@ -8,8 +8,9 @@ class User(UserMixin,db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(150))
     last_name = db.Column(db.String(150))
-    email =  db.Column(db.String(200), unique=True)
+    email =  db.Column(db.String(200), unique=True, index=True)
     password = db.Column(db.String(200))
+    icon = db.Column(db.Integer)
     created_on = db.Column(db.DateTime, default=dt.utcnow)
 
     def __repr__(self):

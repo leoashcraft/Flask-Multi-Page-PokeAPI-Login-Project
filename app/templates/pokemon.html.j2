@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
+{% block title %}
+Pokemon API Lookup
+{% endblock %}
 {% block content %}
+
 {% if error %}
 <div class="container error">
   <div class="row align-items-start">
   <div class="col">
     <h3><img src="{{url_for('static',filename='hobo.png')}}"><br /><br />{{error}}</h3>
     <p>Check your spelling and give it a try again...</p>
-    <form class="d-flex" action="{{url_for('pokemon')}}" method="POST">
+    <form class="d-flex" action="{{url_for('main.pokemon')}}" method="POST">
       {{ g.form.hidden_tag() }}
       {{ g.form.search(class="form-control me-2") }}
       {{ g.form.submit(class="btn btn-outline-success") }}
